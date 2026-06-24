@@ -192,6 +192,7 @@
     .hero-integrated{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:24px 28px 16px;text-align:left;position:relative}
     .hero-main-title{font-size:26px;font-weight:700;line-height:1.3;margin:0;color:var(--graphite)}
     .hero-subtitle{font-size:12px;color:var(--steel);margin:0;line-height:1.5}
+    .hero-disclaimer{font-size:12px;color:var(--steel);margin:0;line-height:1.5;opacity:.7}
     .hero-impact-row{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px;margin-top:2px}
     .hero-impact-row .impact-pill{font-size:10px;padding:2px 7px;border-radius:6px;display:inline-flex;align-items:baseline;gap:2px;line-height:1}
     .hero-impact-row .impact-pill strong{font-weight:700;font-size:16px}
@@ -247,6 +248,7 @@ if(sessionStorage.getItem('board_auth')==='1'){
         <h2 class="hero-main-title" id="heroTitle">中国汽车品牌出海动态跟踪</h2>
         <p class="hero-subtitle" id="subtitle"></p>
         <div class="hero-impact-row" id="impactLegend"></div>
+        <p class="hero-disclaimer" id="disclaimer"></p>
         <button class="hero-lang-toggle hero-lang-center" id="langToggle" type="button" aria-label="切换中文/英文" aria-pressed="false"><span>中文</span><span>EN</span></button>
         <div id="metaChips" hidden></div>
         <div id="impactBar" hidden></div>
@@ -572,6 +574,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
         heroTitle: "中国汽车品牌出海动态跟踪", defaultNewsTitle: "未命名资讯", sourceFallback: "来源待补充", noSummary: "暂无摘要。",
         cleanedItems: "资讯数", weeklyCandidates: "周报候选", highImpact: "高影响", coveredOems: "覆盖车企", coveredRegions: "覆盖区域",
         latestDefault: "默认展示最新完整周", dataRangePrefix: "数据范围", fullWeek: "完整周", partialWeek: "跨月周",
+        disclaimer: "声明：资讯由RSS源自动抓取，每日更新；分类与影响等级由AI自动判定，可能存在误差；内容仅供参考，不代表本平台立场",
         allPrefix: "全部", currentRange: "当前范围", items: "条", baseline: "首周基线", vsLastWeek: "较上周", currentResults: "当前筛选结果",
         noResults: "当前筛选无结果。", noHighlights: "当前筛选无重点资讯。", noDetails: "当前筛选无明细资讯。",
         thisWeekCleaned: "本周资讯", relatedOems: "涉及车企", relatedRegions: "涉及区域", topCategory: "主分类TOP1",
@@ -584,6 +587,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
         heroTitle: "China OEM Global News", defaultNewsTitle: "Untitled News", sourceFallback: "Source pending", noSummary: "No summary.",
         cleanedItems: "Cleaned Items", weeklyCandidates: "Weekly Candidates", highImpact: "High Impact", coveredOems: "OEMs Covered", coveredRegions: "Regions Covered",
         latestDefault: "Latest full week shown by default", dataRangePrefix: "Data period", fullWeek: "Full Week", partialWeek: "Cross-month",
+        disclaimer: "Disclaimer: News auto-collected via RSS feeds, updated daily. Classification and impact levels are AI-generated and may contain inaccuracies. Content is for reference only and does not represent the views of this platform.",
         allPrefix: "All", currentRange: "Current range", items: "items", baseline: "Baseline week", vsLastWeek: "vs previous week", currentResults: "Current results",
         noResults: "No results for the current filters.", noHighlights: "No highlight news for the current filters.", noDetails: "No detail news for the current filters.",
         thisWeekCleaned: "Items This Week", relatedOems: "OEMs", relatedRegions: "Regions", topCategory: "Top Category",
@@ -792,6 +796,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
       document.getElementById("subtitle").textContent = isEnglish()
         ? `${t("dataRangePrefix")}: ${month.periodLabel.split(/\s*(?:至|to)\s*/)[0]} to ${new Date().toISOString().slice(0,10)}; ${t("latestDefault")}`
         : `${t("dataRangePrefix")}：${month.periodLabel.split(/\s*(?:至|to)\s*/)[0]} 至 ${new Date().toISOString().slice(0,10)}；${t("latestDefault")}`;
+      document.getElementById("disclaimer").textContent = t("disclaimer");
       document.getElementById("metaChips").innerHTML = [`<div class="chip">${t("cleanedItems")} <strong>${month.cleanedItems}</strong></div>`,`<div class="chip">${t("weeklyCandidates")} <strong>${month.weeklyCandidates}</strong></div>`,`<div class="chip">${esc(keyImpactLabelText(month.keyImpactLabel))} <strong>${month.highImpact}</strong></div>`,`<div class="chip">${t("coveredOems")} <strong>${month.uniqueOems}</strong></div>`,`<div class="chip">${t("coveredRegions")} <strong>${month.uniqueRegions}</strong></div>`].join("");
     }
     const normalizeText = (value) => String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
