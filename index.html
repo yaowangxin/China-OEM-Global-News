@@ -294,14 +294,14 @@ if(sessionStorage.getItem('board_auth')==='1'){
           </div>
         </section>
         <section class="panel brand-footprint">
-          <div class="head"><div><h2>品牌全球足迹</h2></div><div class="foot-note" id="brandMapStat"></div></div>
+          <div class="head"><div><h2>品牌热度地图</h2></div><div class="foot-note" id="brandMapStat"></div></div>
           <div class="map-toolbar">
             <div class="filter-block"><label for="brandFocusFilter">品牌/集团</label><select class="filter-select" id="brandFocusFilter"></select></div>
             <div class="brand-brief" id="brandSummary"></div>
           </div>
           <div class="map-layout">
             <div class="map-stage">
-              <div id="brandMapSvg" class="map-host" role="img" aria-label="品牌全球足迹地图"></div>
+              <div id="brandMapSvg" class="map-host" role="img" aria-label="品牌热度地图地图"></div>
             </div>
             <div class="map-side">
               <div class="map-side-head">
@@ -708,7 +708,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
         regionDist: "区域热度分布", regionDistNote: "识别重点市场和多区域动作的聚集程度。",
         oemRank: "车企曝光排名", oemRankNote: "按资讯提及拆分统计，多车企资讯会分别计入对应主体。",
         countryMap: "国家热度地图", countryMapNote: "根据当前周与主看板筛选范围，以国家落点气泡查看新闻热度，并联动当地重要资讯。",
-        currentCountry: "当前聚焦国家", brandMap: "品牌全球足迹", brandSelector: "品牌/集团", currentBrandCountry: "当前落点国家",
+        currentCountry: "当前聚焦国家", brandMap: "品牌热度地图", brandSelector: "品牌/集团", currentBrandCountry: "当前落点国家",
         highlights: "重点资讯", highlightsNote: "先按影响等级、周报候选、发布时间排序，再做事件级去重，并控制厂商与事件类型覆盖。",
         detailFilter: "资讯明细筛选", searchPlaceholder: "搜索标题、摘要、车企、国家、二级分类",
         date: "日期", title: "标题", oem: "车企", oemGroup: "车企集团", region: "区域", category: "分类", primaryCategory: "一级分类", secondaryCategory: "二级分类",
@@ -721,7 +721,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
         regionDist: "Regional Heat", regionDistNote: "Identifies priority markets and multi-region activity clusters.",
         oemRank: "OEM Visibility Ranking", oemRankNote: "Mentions are split by OEM, so multi-OEM items count toward each relevant player.",
         countryMap: "Country Heat Map", countryMapNote: "Country bubbles reflect news volume within the selected week and dashboard filters.",
-        currentCountry: "Focused Country", brandMap: "Brand Global Footprint", brandSelector: "Brand / OEM", currentBrandCountry: "Current Country",
+        currentCountry: "Focused Country", brandMap: "Brand Heat Map", brandSelector: "Brand / OEM", currentBrandCountry: "Current Country",
         highlights: "Key News", highlightsNote: "Ranked by impact, weekly-candidate status and publish date, then deduped by event with OEM and event-type coverage.",
         detailFilter: "News Detail Search", searchPlaceholder: "Search title, summary, OEM, country or subcategory",
         date: "Date", title: "Title", oem: "OEM", oemGroup: "OEM Group", region: "Region", category: "Category", primaryCategory: "Primary Category", secondaryCategory: "Secondary Category",
