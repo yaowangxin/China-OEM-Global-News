@@ -13,7 +13,8 @@
     body::after{right:40px;bottom:72px;width:260px;height:260px;background:rgba(255,105,0,.10)}
     button,input,select{font:inherit} button{border:0;background:none;padding:0;cursor:pointer}
     a{color:inherit;text-decoration:none} h1,h2,p,ul{margin:0}
-    .shell{position:relative;z-index:1;display:grid;grid-template-columns:332px minmax(0,1fr);gap:22px;min-height:100vh;padding:22px}
+    .shell{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr);gap:22px;min-height:100vh;padding:22px}
+    .rail{display:none}
     .rail{position:sticky;top:22px;align-self:start;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh - 44px)}
     .brand,.rail-card,.panel,.hero{border:1px solid rgba(234,228,220,.92);background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(255,255,255,.72));backdrop-filter:blur(18px);box-shadow:var(--shadow)}
     .brand{display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:28px}
@@ -62,9 +63,9 @@
     .hero-logo.mi-brand{width:auto;height:var(--partner-logo-height)}
     .hero-hailianhui{display:flex;align-items:center;justify-content:center;height:var(--partner-logo-height);flex:0 0 auto}
     .hero-logo.hailianhui{width:auto;height:var(--partner-logo-height);object-fit:contain}
-    .hero-lang-toggle{position:absolute;right:26px;bottom:22px;display:inline-flex;align-items:center;gap:4px;min-height:34px;padding:4px;border-radius:999px;border:1px solid rgba(216,220,228,.9);background:rgba(255,255,255,.88);box-shadow:0 10px 24px rgba(38,38,38,.07);color:var(--steel);font-size:12px;font-weight:700}
-    .hero-lang-toggle span{display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:26px;padding:0 10px;border-radius:999px;transition:.18s ease}
-    .hero-lang-toggle span:first-child{color:var(--graphite);background:var(--graphite);color:#fff}
+    .hero-lang-toggle{position:absolute;right:26px;bottom:22px;display:inline-flex;flex-direction:column;align-items:center;gap:3px;padding:4px;border-radius:12px;border:1px solid rgba(216,220,228,.9);background:rgba(255,255,255,.88);box-shadow:0 10px 24px rgba(38,38,38,.07);color:var(--steel);font-size:10px;font-weight:700}
+    .hero-lang-toggle span{display:inline-flex;align-items:center;justify-content:center;min-width:32px;flex:1;padding:0 6px;border-radius:8px;transition:.18s ease}
+    .hero-lang-toggle span:first-child{background:var(--graphite);color:#fff}
     .hero-lang-toggle.is-en span:first-child{background:transparent;color:var(--steel)}
     .hero-lang-toggle.is-en span:last-child{background:var(--graphite);color:#fff}
     .kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
@@ -182,11 +183,23 @@
     .map-empty{display:flex;align-items:center;justify-content:center;min-height:180px;padding:24px;color:var(--steel);font-size:13px;line-height:1.7;text-align:center}
     @keyframes mapPulse{0%{transform:scale(.86);opacity:.3}70%{transform:scale(1.16);opacity:.06}100%{transform:scale(1.28);opacity:0}}
     code{padding:2px 6px;border-radius:8px;background:rgba(255,249,237,.92);color:#8c5600;font-family:"JetBrains Mono","Cascadia Code",monospace;font-size:11px}
-    @media (max-width:1440px){.shell{grid-template-columns:304px minmax(0,1fr);padding:18px}.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.triple{grid-template-columns:1fr}}
+    @media (max-width:1440px){.shell{grid-template-columns:minmax(0,1fr);padding:18px}.kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.triple{grid-template-columns:1fr}}
     @media (max-width:1160px){.shell{grid-template-columns:1fr}.rail{position:static;max-height:none}.hero,.split,.map-layout{grid-template-columns:1fr}.weeks{max-height:none}.board-filters{grid-template-columns:1fr 1fr}.map-toolbar{align-items:flex-start;flex-direction:column}.brand-brief{justify-content:flex-start}}
     @media (max-width:760px){.shell{padding:14px;gap:14px}.brand,.rail-card,.panel,.hero{border-radius:22px}.hero{padding-top:82px}.hero-copy{padding-left:0;padding-right:0}.hero-copy h2{font-size:24px}.hero-date{font-size:15px}.hero-logos{top:18px;left:18px;gap:6px;--partner-logo-height:23px}.hero-logo-row{gap:10px}.hero-byline{font-size:11px}.hero-lang-toggle{right:18px;bottom:18px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.impact-legend,.board-filters,.filters{grid-template-columns:1fr}.bar-row{grid-template-columns:92px 1fr 36px} th,td{padding:10px}.map-stage{min-height:320px}.map-focus-value{font-size:18px}}
     @media (max-width:1160px){.country-heatmap .map-layout,.brand-footprint .map-layout{height:auto}.country-heatmap .map-stage,.brand-footprint .map-stage{height:420px;min-height:420px}.country-heatmap .map-side,.brand-footprint .map-side{max-height:560px}}
     @media (max-width:760px){.country-heatmap .map-stage,.brand-footprint .map-stage{height:340px;min-height:340px}.country-heatmap .map-side,.brand-footprint .map-side{max-height:520px}}
+    /* Hero Integrated */
+    .hero-integrated{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:24px 28px 16px;text-align:left;position:relative}
+    .hero-main-title{font-size:26px;font-weight:700;line-height:1.3;margin:0;color:var(--graphite)}
+    .hero-subtitle{font-size:12px;color:var(--steel);margin:0;line-height:1.5}
+    .hero-impact-row{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px;margin-top:2px}
+    .hero-impact-row .impact-pill{font-size:10px;padding:2px 7px;border-radius:6px;display:inline-flex;align-items:baseline;gap:2px;line-height:1}
+    .hero-impact-row .impact-pill strong{font-weight:700;font-size:16px}
+    .hero-impact-row .impact-pill .impact-tip{font-size:10px;color:var(--steel);font-weight:400}
+    .hero-lang-center{position:absolute;top:24px;right:28px;font-size:10px;padding:4px;margin:0;border-radius:12px}
+    .map-grid{display:flex;flex-direction:column;gap:22px}
+    /* Digest Panel (removed) */
+
   </style>
 </head>
 <body >
@@ -226,39 +239,19 @@ if(sessionStorage.getItem('board_auth')==='1'){
   
   <div class="shell">
     <aside class="rail">
-      <section class="brand">
-        <div class="brand-copy">
-          
-          <h1>全球汽车资讯</h1>
-        </div>
-      </section>
-      <section class="rail-card warm">
-        <span class="pill-tag">Weekly Intelligence Board</span>
-        <p class="subtitle" id="subtitle"></p>
-        <div class="chips" id="metaChips"></div>
-      </section>
+
       <div id="weekStrip" hidden></div>
-      <section class="rail-card">
-        <div class="head"><div><h2>影响等级结构</h2><p>按当前月主表使用的分级体系展示周内 S / A / B / C 或高 / 中 / 低 分布。</p></div></div>
-        <div class="impact-stack"><div class="impact-bar" id="impactBar"></div><div class="impact-legend" id="impactLegend"></div></div>
-      </section>
     </aside>
     <main class="main">
-      <section class="hero">
-        <div class="hero-copy">
-          <h2 id="heroTitle">中国汽车品牌出海动态跟踪<br><span class="hero-date">2026-06-01 至 2026-06-21</span></h2>
-        </div>
-                <div class="hero-logos" aria-label="合作方 logo">
-          <div class="hero-logo-row">
-            <span class="hero-hailianhui" role="img" >
-                        
-                      </span>
-            
-          </div>
-          
-        </div>
-        <button class="hero-lang-toggle" id="langToggle" type="button" aria-label="切换中文/英文" aria-pressed="false"><span>中文</span><span>EN</span></button>
+      <section class="hero hero-integrated">
+        <h2 class="hero-main-title" id="heroTitle">中国汽车品牌出海动态跟踪</h2>
+        <p class="hero-subtitle" id="subtitle"></p>
+        <div class="hero-impact-row" id="impactLegend"></div>
+        <button class="hero-lang-toggle hero-lang-center" id="langToggle" type="button" aria-label="切换中文/英文" aria-pressed="false"><span>中文</span><span>EN</span></button>
+        <div id="metaChips" hidden></div>
+        <div id="impactBar" hidden></div>
       </section>
+
       <section class="panel">
         <div class="head"><div><h2>主看板筛选</h2></div><div class="foot-note" id="boardCount"></div></div>
         <div class="board-filters">
@@ -578,7 +571,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
       zh: {
         heroTitle: "中国汽车品牌出海动态跟踪", defaultNewsTitle: "未命名资讯", sourceFallback: "来源待补充", noSummary: "暂无摘要。",
         cleanedItems: "资讯数", weeklyCandidates: "周报候选", highImpact: "高影响", coveredOems: "覆盖车企", coveredRegions: "覆盖区域",
-        latestDefault: "默认展示最新完整周。", dataRangePrefix: "数据范围", fullWeek: "完整周", partialWeek: "跨月周",
+        latestDefault: "默认展示最新完整周", dataRangePrefix: "数据范围", fullWeek: "完整周", partialWeek: "跨月周",
         allPrefix: "全部", currentRange: "当前范围", items: "条", baseline: "首周基线", vsLastWeek: "较上周", currentResults: "当前筛选结果",
         noResults: "当前筛选无结果。", noHighlights: "当前筛选无重点资讯。", noDetails: "当前筛选无明细资讯。",
         thisWeekCleaned: "本周资讯", relatedOems: "涉及车企", relatedRegions: "涉及区域", topCategory: "主分类TOP1",
@@ -590,7 +583,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
       en: {
         heroTitle: "China OEM Global News", defaultNewsTitle: "Untitled News", sourceFallback: "Source pending", noSummary: "No summary.",
         cleanedItems: "Cleaned Items", weeklyCandidates: "Weekly Candidates", highImpact: "High Impact", coveredOems: "OEMs Covered", coveredRegions: "Regions Covered",
-        latestDefault: "Latest full week shown by default.", dataRangePrefix: "Data period", fullWeek: "Full Week", partialWeek: "Cross-month",
+        latestDefault: "Latest full week shown by default", dataRangePrefix: "Data period", fullWeek: "Full Week", partialWeek: "Cross-month",
         allPrefix: "All", currentRange: "Current range", items: "items", baseline: "Baseline week", vsLastWeek: "vs previous week", currentResults: "Current results",
         noResults: "No results for the current filters.", noHighlights: "No highlight news for the current filters.", noDetails: "No detail news for the current filters.",
         thisWeekCleaned: "Items This Week", relatedOems: "OEMs", relatedRegions: "Regions", topCategory: "Top Category",
@@ -785,7 +778,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
       const monthNo = monthNoFromLabel(week.weekStart);
       const weekNo = weekIndexWithinMonth(week);
       const weekText = isEnglish() ? `${MONTH_EN[monthNo]} Week ${weekNo}` : `${monthNo}月第${weekNo}周`;
-      document.getElementById("heroTitle").innerHTML = `${esc(t("heroTitle"))}<br><span class="hero-date">${esc(weekText)} ${formatShortDate(week.weekStart)}-${formatShortDate(week.weekEnd)}</span>`;
+      document.getElementById("heroTitle").textContent = t("heroTitle");
     }
     function weekOptionLabel(week, index) {
       const monthNo = monthNoFromLabel(week.weekStart);
@@ -797,8 +790,8 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
     function renderMeta() {
       const month = DATA.monthSummary;
       document.getElementById("subtitle").textContent = isEnglish()
-        ? `${monthLabelText(month.monthLabel)} ${t("dataRangePrefix")}: ${periodLabelText(month.periodLabel)}; ${t("latestDefault")}`
-        : `${month.monthLabel}${t("dataRangePrefix")}：${month.periodLabel}；${t("latestDefault")}`;
+        ? `${t("dataRangePrefix")}: ${month.periodLabel.split(/\s*(?:至|to)\s*/)[0]} to ${new Date().toISOString().slice(0,10)}; ${t("latestDefault")}`
+        : `${t("dataRangePrefix")}：${month.periodLabel.split(/\s*(?:至|to)\s*/)[0]} 至 ${new Date().toISOString().slice(0,10)}；${t("latestDefault")}`;
       document.getElementById("metaChips").innerHTML = [`<div class="chip">${t("cleanedItems")} <strong>${month.cleanedItems}</strong></div>`,`<div class="chip">${t("weeklyCandidates")} <strong>${month.weeklyCandidates}</strong></div>`,`<div class="chip">${esc(keyImpactLabelText(month.keyImpactLabel))} <strong>${month.highImpact}</strong></div>`,`<div class="chip">${t("coveredOems")} <strong>${month.uniqueOems}</strong></div>`,`<div class="chip">${t("coveredRegions")} <strong>${month.uniqueRegions}</strong></div>`].join("");
     }
     const normalizeText = (value) => String(value || "").toLowerCase().replace(/\s+/g, " ").trim();
@@ -931,12 +924,18 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
       root.innerHTML = items.map((item) => `<div class="bar-row"><div>${esc(displayLabel(item.name))}</div><div class="track"><div class="fill ${extraClass || ""}" style="width:${(item.count / max) * 100}%"></div></div><div>${item.count}</div></div>`).join("");
     }
     function renderImpact() {
-      const rows = boardFilteredRows();
-      const total = Math.max(rows.length, 1);
+      const rows = rowsForWeek(state.selectedWeek).filter((row) => {
+        if (state.boardRegion && (row.region || "未分类") !== state.boardRegion) return false;
+        if (state.boardCategory && (row.primaryCategory || "未分类") !== state.boardCategory) return false;
+        if (state.boardOem && !row.oemList.includes(state.boardOem)) return false;
+        return true;
+      });
       const counts = Object.fromEntries((DATA.impactLevels || []).map((level) => [level, rows.filter((row) => row.impactLevel === level).length]));
       const levels = DATA.impactLevels || [];
-      document.getElementById("impactBar").innerHTML = levels.map((level) => `<span class="impact-${impactClass(level)}" style="width:${((counts[level] || 0) / total) * 100}%"></span>`).join("");
-      document.getElementById("impactLegend").innerHTML = levels.map((level) => `<div class="impact-pill ${impactClass(level)}">${esc(level)}<strong>${counts[level] || 0}</strong></div>`).join("");
+      const tips = isEnglish()
+        ? {S:"Strategic",A:"Important",B:"Normal",C:"Low"}
+        : {S:"战略级",A:"重要",B:"常规",C:"低影响"};
+      document.getElementById("impactLegend").innerHTML = levels.map((level) => `<div class="impact-pill ${impactClass(level)}">${esc(level)} <strong>${counts[level] || 0}</strong> <span class="impact-tip">${esc(tips[level]||"")}</span></div>`).join("");
     }
     const SUMMARY_ACTION_RE = /(收购|并购|建厂|投产|扩产|本地化|合作|签署|发布|推出|上市|预订|交付|进入|重返|扩大|退出|停产|召回|调价|投资|融资|采购|出口|销量|订单|目标|战略|计划|布局|升级|续航|充电|生产|工厂|渠道|经销)/u;
     const LOW_INFO_SUMMARY_RE = [
@@ -1185,7 +1184,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
       const priorityRows = sortHighlightCandidateRows(boardFilteredRows().filter((row) => !HIGHLIGHT_EXCLUDED_IDS.has(row.newsId)));
       return chooseCoveredHighlightRows(dedupeHighlightEvents(priorityRows), HIGHLIGHT_LIMIT);
     }
-    function renderHighlights() {
+        function renderHighlights() {
       const rows = highlightRows();
       if (!rows.length) {
         document.getElementById("highlightBody").innerHTML = `<tr><td colspan="6" class="empty-state">${esc(t("noHighlights"))}</td></tr>`;
@@ -1277,7 +1276,7 @@ var Fr={},Gr={};var Wr,Hr=function(){function t(t,e,n){var i=this;this._sleepAft
       renderDetailTable();
     }
     function rerender() {
-      resetFilters(); renderLanguageToggle(); renderStaticText(); renderMeta(); renderWeekStrip(); renderKpis(); renderInsights(); renderTrend(); rerenderBoard();
+      resetFilters(); renderLanguageToggle(); renderStaticText(); renderMeta(); renderWeekStrip(); renderKpis(); renderInsights(); renderTrend(); renderImpact(); rerenderBoard();
     }
     bindLanguageToggle(); renderMeta(); bindBoardFilters(); bindFilters(); rerender();
   </script>
